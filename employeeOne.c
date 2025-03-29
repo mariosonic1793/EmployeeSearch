@@ -19,4 +19,14 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int tableSize, char *
             return (PtrToEmployee) ptr; 
     } 
     return NULL; 
-} 
+}  
+
+PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int tableSize, char * targetPhone){ 
+    const PtrToConstEmployee endPtr = ptr + tableSize; 
+    for(; ptr < endPtr; ptr++)  //search until end of table  ptr++ will increment by what?? 
+    { 
+        if(strcmp(ptr->phone,targetPhone) == 0) //check if it equals the Employee number 
+            return (PtrToEmployee) ptr; //return location of the number to callee. 
+    } 
+     return NULL;   //this will only happen if no Employee number matches in loop above 
+}
